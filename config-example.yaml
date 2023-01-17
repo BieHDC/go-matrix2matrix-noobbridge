@@ -1,0 +1,56 @@
+# ===== Matrix Authentications =====
+servers:
+  - homeserver: "example.test"
+    login_type: "accesstoken"
+    username_or_userid: "@bot:example.test"
+    password_or_accesstoken: "DO NOT REDEEM THE ACCESSTOKEN"
+    rooms:
+      - name: "generalchat" # All rooms with this name share messages
+        room: "!roomid1:example.test" # That rooms roomid for that specific homeserver
+        mediainbound: true # The room is able to receive files
+        mediaoutbound: true # The room is able to send files
+      - name: "offtopic"
+        room: "!roomid2:sneed.chuck"
+        mediainbound: false # The room is not able to receive files
+        mediaoutbound: true
+
+  - homeserver: "funnypineconeurl"
+    login_type: "password"
+    username_or_userid: "botter"
+    password_or_accesstoken: "DO NOT REDEEM THE PASSWORD"
+    rooms:
+      - name: "generalchat"
+        room: "!anotherroomid:pineconeurl"
+        mediainbound: true
+        mediaoutbound: false # The room is not able to send files
+      - name: "offtopic"
+        room: "!yesanotherone:pineconeurl"
+        mediainbound: false
+        mediaoutbound: false
+      - name: "thatweirdmemechannel"
+        room: "!runningoutofideas:pineconeurl"
+        mediainbound: true
+        mediaoutbound: true
+
+  - homeserver: "anotherserver.test"
+    login_type: "accesstoken"
+    username_or_userid: "@yes:anotherserver.test"
+    password_or_accesstoken: "REDEEM NONO"
+    rooms:
+      - name: "thatweirdmemechannel"
+        room: "!roomid3:anotherserver.test"
+        mediainbound: true
+        mediaoutbound: true
+      - name: "thatweirdmemechannel"
+        room: "!roomid4:anotherserver.test" #we can have same homeserver briged rooms too
+        mediainbound: true
+        mediaoutbound: true
+
+
+# ===== Bot Settings =====
+
+# The bot display name
+device_display_name: "Simple Bridge V1"
+
+# The identifier, useful to not spawn new sessons all the time
+unique_device_id: "Simple_Bridge_V1"
