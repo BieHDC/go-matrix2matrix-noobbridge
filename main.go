@@ -206,7 +206,7 @@ func main() {
 				//stage 1 - source server
 				contentFile, err := parseAndDownload(server, fullmsgevt.URL)
 				if err != nil {
-					log.Println(server.Homeserver, "-> Failed to download media:", fullmsgevt.Body)
+					log.Println(server.Homeserver, "-> Failed to download media:", fullmsgevt.Body, "reason:", err.Error())
 					return //nothing to do
 				}
 
@@ -215,7 +215,7 @@ func main() {
 					var err error
 					contentThumbnail, err = parseAndDownload(server, fullmsgevt.Info.ThumbnailURL)
 					if err != nil {
-						log.Println(server.Homeserver, "-> Failed to download thumbnail for:", fullmsgevt.Body)
+						log.Println(server.Homeserver, "-> Failed to download thumbnail for:", fullmsgevt.Body, "reason:", err.Error())
 						return //why would this fail if the other one did not?
 					}
 				}
